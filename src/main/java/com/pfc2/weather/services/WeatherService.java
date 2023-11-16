@@ -10,6 +10,7 @@ import com.pfc2.weather.utils.WebClientConnection;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -25,8 +26,10 @@ public class WeatherService {
     @Autowired
     private WeatherDao weatherRepository;
 
-    private String APIkey = "b15dd521bf76013ba7991a326867e1b5";
-    private String baseUrl = "https://api.openweathermap.org/data/2.5/weather?lat=";
+    @Value("${weather.key-credential}")
+    private String APIkey;
+    @Value("${weather.base-url}")
+    private String baseUrl;
 
     public WeatherResponse getCurrentWeather(WeatherRequest weatherRequest) {
         Double lat = weatherRequest.getLat();

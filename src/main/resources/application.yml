@@ -1,6 +1,10 @@
 auth0:
   audience: https://my.apiweather-promerica.module
 
+weather:
+  key-credential: b15dd521bf76013ba7991a326867e1b5
+  base-url: https://api.openweathermap.org/data/2.5/weather?lat=
+
 spring:
   datasource:
     url: jdbc:h2:mem:testdb
